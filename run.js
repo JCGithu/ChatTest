@@ -17,5 +17,9 @@ client.on("connected", () => console.log('Reading from Twitch! ✅'));
 client.connect();
 client.on('message', (channel, tags, message, self) => {
   document.body.innerHTML = tags.username + ': ' + message;
-  console.log(tags);
 });
+client.on('raw_message', (cloned, message) => {
+  console.log(message.raw);
+  console.log(message);
+});
+
